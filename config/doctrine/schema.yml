@@ -1,0 +1,44 @@
+tlTask:
+  actAs: [Timestampable]
+  tableName: tl_tasks
+  options: { charset: utf8, collate: utf8_unicode_ci }
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      autoincrement: true
+    task:
+      type: string(255)
+      notnull: true
+    arguments:
+      type: string(255)
+    options:
+      type: string(255)
+    count_processed:
+      type: integer(4)
+      notnull: true
+      default: 0
+    count_not_processed:
+      type: integer(4)
+      notnull: true
+      default: 0
+    is_running:
+      type: boolean
+      default: false
+    last_id_processed:
+      type: integer(11)      
+    started_at:
+      type: timestamp
+    ended_at:
+      type: timestamp
+    is_ok:
+      type: boolean
+      default: false
+    log_file:
+      type: string(255)
+    log:
+      type: clob
+    error_code:
+      type: integer(4)
+    comments:
+      type: clob

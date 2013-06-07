@@ -1,0 +1,4 @@
+config/plugin_sftl.yml:
+  class:    sfSimpleYamlConfigHandler
+  param:
+    prefix: plugin_sfTaskLogger_

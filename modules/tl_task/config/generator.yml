@@ -1,0 +1,62 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           tlTask
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          tl_task
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+
+      fields:
+        id:         { label: "Pk" }
+        task:       { label: "Task" }
+        arguments:  { label: "Arguments" }
+        options:    { label: "Task options" }
+        count_processed: { label: "Processed" }
+        count_not_processed: { label: "Not processed" }
+        is_running: { label: "Running?" }
+        started_at: { label: "Started at" }
+        ended_at:   { label: "Ended at" }
+        is_ok:      { label: "Ok?" }
+        log_file:   { label: "File log" }
+        log:        { label: "Database log" }
+        error_code: { label: "Error code" }
+        comments:   { label: "Admin Comments" }
+        lenght:     { label: "Length (h:m:s)" }
+
+      list:
+        title: "CRON / Tasks list"
+        layout: tabular
+        display: [=id, task, started_at, is_running, ended_at, _length, is_ok, error_code, count_processed, count_not_processed]
+        max_per_page:  20
+        sort:          [id, desc]
+        batch_actions: ~
+        object_actions:
+          _edit: { label: "Edit/show" }
+        actions: { }
+
+      filter:
+        class:   tlTaskBackendFormFilter
+        display: [id, task, arguments, options, started_at, is_running, ended_at, is_ok, error_code, comments]
+
+      form:
+        class:   tlTaskBackendForm
+        actions: ~
+        display:
+          "Id":     [id, task, arguments, options]
+          "Statut": [is_ok, error_code]
+          "Stats":  [started_at, is_running, ended_at, _length, count_processed, count_not_processed]
+          "Logs":   [log_file, _file_log, log, _database_log]
+          "Admin":  [comments, created_at, updated_at]
+
+      edit:
+        title: Edition / view of task "%%id%%"
+
+      new: ~

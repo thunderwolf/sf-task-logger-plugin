@@ -1,0 +1,8 @@
+tl_task:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                tlTask
+    module:               tl_task
+    prefix_path:          /tl_task
+    column:               id
+    with_wildcard_routes: true

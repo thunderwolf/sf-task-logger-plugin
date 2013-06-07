@@ -1,0 +1,22 @@
+propel:
+  _attributes:     { package: plugins.sfTaskLoggerPlugin.lib.model }
+  
+  tl_tasks:
+    _attributes:   { phpName: tlTask }
+    id:            ~
+    task:          { type: VARCHAR, size: '255', required: true, description: 'Name of the task' }
+    arguments:     { type: VARCHAR, size: '255', description: 'List of arguments' }
+    options:       { type: VARCHAR, size: '255', description: 'List of options' }
+    count_processed: { type: INTEGER, required: true, description: 'Count of processed records', default: 0 }
+    count_not_processed: { type: INTEGER, required: true, description: 'Count of NOT processed records', default: 0 }
+    is_running:    { type: BOOLEAN, required: true, default: '0', description: 'Flat that tells if task is actually runing' }
+    last_id_processed: { type: INTEGER, description: 'Last record Id fully processed without error' }
+    started_at:    { type: TIMESTAMP, description: 'Process start time' }
+    ended_at:      { type: TIMESTAMP, description: 'Process end time' }
+    is_ok:         { type: BOOLEAN, required: true, default: '0', description: 'Flag that tells if task finished without error' }
+    error_code:    { type: INTEGER, description: 'Error code for success or failure' }
+    log:           { type: LONGVARCHAR, description: 'The full console output of the task' }
+    log_file:      { type: VARCHAR, size: '255', description: 'Log file associated to the task' }
+    comments:      { type: LONGVARCHAR, description: 'Additional admin comments about the task and its results' }
+    created_at:    ~
+    updated_at:    ~
