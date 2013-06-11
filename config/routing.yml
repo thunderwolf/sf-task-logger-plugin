@@ -1,5 +1,5 @@
 tl_task:
-  class: sfDoctrineRouteCollection
+  class: sfPropelRouteCollection
   options:
     model:                tlTask
     module:               tl_task
