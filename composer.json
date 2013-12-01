@@ -4,6 +4,14 @@
     "description": "symfony 1.x Task Logger plugin - Allow you to run tasks and store the results in both database and/or a log file.",
     "keywords": ["symfony", "task"],
     "homepage": "http://www.symfony-project.org/",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vernet Loïc",
+            "email": "qrf_coil@yahoo.fr",
+            "homepage": "http://www.strangebuzz.com/"
+        }
+    ],
     "require": {
         "composer/installers": "*"
     }
